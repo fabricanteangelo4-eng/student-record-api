@@ -32,5 +32,5 @@ For POST /api/students, choose Body → raw → JSON in Postman:
 }
 The name and course are required. The year must be a number from 1 to 5. The API returns an error if the data is invalid or the student ID does not exist.
 Project Links
-- GitHub: https://github.com/YOUR-USERNAME/student-records-api
-- Render: https://YOUR-SERVICE-NAME.onrender.com
+- GitHub: https://github.com/fabricanteangelo4-eng/student-record-api
+- Render: https://student-record-api-1-t6nu.onrender.com
