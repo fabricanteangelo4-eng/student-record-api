@@ -13,17 +13,14 @@ let students = [
 
 let nextId = 3;
 
-// Root route
 app.get("/", (req, res) => {
   res.json({ message: "Student Records API is running!" });
 });
 
-// 1. Get all students
 app.get("/api/students", (req, res) => {
   res.status(200).json(students);
 });
 
-// 2. Get one student
 app.get("/api/students/:id", (req, res) => {
   const student = students.find(
     s => s.id === Number(req.params.id)
@@ -38,7 +35,6 @@ app.get("/api/students/:id", (req, res) => {
   res.status(200).json(student);
 });
 
-// 3. Create a student
 app.post("/api/students", (req, res) => {
   const { name, course, year } = req.body;
 
@@ -63,7 +59,6 @@ app.post("/api/students", (req, res) => {
   res.status(201).json(student);
 });
 
-// 4. Update a student
 app.put("/api/students/:id", (req, res) => {
   const student = students.find(
     s => s.id === Number(req.params.id)
@@ -94,7 +89,6 @@ app.put("/api/students/:id", (req, res) => {
   res.status(200).json(student);
 });
 
-// 5. Delete a student
 app.delete("/api/students/:id", (req, res) => {
   const index = students.findIndex(
     s => s.id === Number(req.params.id)
@@ -114,7 +108,6 @@ app.delete("/api/students/:id", (req, res) => {
   });
 });
 
-// Handle invalid JSON bodies
 app.use((err, req, res, next) => {
   if (err instanceof SyntaxError && err.status === 400 && "body" in err) {
     return res.status(400).json({
